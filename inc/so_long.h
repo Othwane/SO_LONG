@@ -6,56 +6,55 @@
 #include <stdlib.h>
 #include <fcntl.h>
 
-
-typedef	struct	s_image {
-	void	*img;
-	char	*addr;
-	int	heigth;
-	int	width;
-	int	endian;
-	int	bbpixel;
-	int	linelentgh;
-}	t_image;
-
-typedef struct	s_info {
-	int	pexist;
-	int	cexist;
-	int	eexist;
-}	t_info;
-
-typedef	struct	s_handw {
-	int	heigth;
-	int	width;
-}	t_handw;
-
-typedef	struct	s_vector {
-	int	x;
-	int	y;
-}	t_vector;
-
-typedef	struct	s_player {
-	t_image img;
-	t_vector cposition;
-	t_vector lposition;
-}	t_player;
-
-typedef	struct	s_map {
-	int	m_heigth;
-	int	m_width;
-	int	**twod_map;
-	t_vector x_ypos;
-}	t_map;
+#define BUFFER_SIZE 100
 
 typedef struct	s_game {
 	void	*mlx;
 	void	*win;
-	int	hwin;
-	int	wwin;
-	int	moves;
-	t_map	**map;
-	t_player player;
-	t_info	info;
+	int		w_heigth;	
+	int		w_weidth;
 	
+	char	**map;
+	char	*mapname;
+	char 	*mapx;
+	int 	mapfd;
+	int		l_map;
+	int		c_map;
+	int 	x_map;
+	int 	y_map;
+
+	int 	player;
+	int 	x_player;
+	int 	y_player;
+
+	int 	collects;
+
+	int	moves;
+
+	int 	exit;
+	int 	x_exit;
+	int 	y_exit;
+
 }	t_game;
+
+int 	ft_strlen(char *str);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putchar_fd(char c, int fd);
+
+int		slength(char *string);
+char	*searchr(char *string, int x);
+char	*stringjoin(char *pref, char *suff);
+char	*ft_read_ln(int fd, char *line);
+char	*ft_until_nl(char *string);
+char	*ft_after_nl(char *string);
+char	*get_next_line(int fd);
+
+void	argschecker(int argc, char **argv, t_game *game);
+void	initstuff(char **argv, t_game *game);
+void    errorf(int error);
+
+void    r_map(t_game *game);
+void    n_map(t_game *game);
+
 
 #endif
