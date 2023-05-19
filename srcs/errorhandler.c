@@ -12,7 +12,7 @@ void    errorf(int error)
     else if (error == 4)
         ft_putstr_fd("Map not found", 2);
     else if (error == 5)
-        ft_putstr_fd("Map name is not correct", 2);
+        ft_putstr_fd("", 2);
     exit(1);
 
 }

@@ -53,7 +53,7 @@ void	argschecker(int argc, char **argv, t_game *game);
 void	initstuff(char **argv, t_game *game);
 void    errorf(int error);
 
-void    r_map(t_game *game);
+void    readmap(t_game *game);
 void    n_map(t_game *game);
 
 
