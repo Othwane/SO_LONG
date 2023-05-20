@@ -15,21 +15,14 @@ void    readmap(t_game *game)
 			break ;
 		line++;
 	}
-    close(game->mapfd);
     if (!(game->map = malloc(line * sizeof(char *))))
-    {
-		close(game->mapfd);
-		return ;
-	}
-	close(game->mapfd);
+		exit (1);
 	fdlines_c(game);
 }
 
 void    fdlines_c(t_game *game)
 {
 	game->mapfd = open(game->mapname, O_RDONLY);
-	//printf("%s\n",get_next_line(game->mapfd));
-	//game->map[game->l_inmap] = get_next_line(game->mapfd);
 	while (1)
 	{
 		game->map[game->l_inmap] = get_next_line(game->mapfd);

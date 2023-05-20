@@ -10,7 +10,8 @@ SRCS =  ./srcs/so_long.c\
 		./srcs/init.c \
 		./srcs/readmap.c \
 		./srcs/gnl.c \
-		./srcs/gnl_utils.c
+		./srcs/gnl_utils.c \
+		./srcs/mapchecker.c
 
 GNL = gnl.c gnl_utils.c 
 

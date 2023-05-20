@@ -56,4 +56,12 @@ void    errorf(int error);
 void    readmap(t_game *game);
 void   	fdlines_c(t_game *game);
 
+// void mapchecker(int mapfd);
+
+void check_walls(t_game *game);
+int    cf_line(t_game *game);
+int    cm_lines(t_game *game);
+int    cl_line(t_game *game);
+
+
 #endif

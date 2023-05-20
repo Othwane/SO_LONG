@@ -6,14 +6,11 @@ int main(int argc, char **argv)
 
 	if (argc != 2)
 		errorf(1);
-
-
 	argschecker(argv);
 	initstuff(argv, &game);
 	readmap(&game);
-	
-
-
+	check_walls(&game);
+	// mapchecker(game.mapfd);
 	//int i = 0;
 	//if (game.map)
 	//{

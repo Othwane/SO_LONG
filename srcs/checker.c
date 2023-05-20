@@ -14,7 +14,7 @@ void	argschecker(char **argv)
                 {
                     fd = open(argv[1], O_RDONLY);
                     if (fd == -1)
-                        errorf(2);
+                        errorf(4);
                     close(fd);
                     return ;
                 }
@@ -25,4 +25,4 @@ void	argschecker(char **argv)
         errorf(2);
     }
     errorf(2);
-}
+} 
