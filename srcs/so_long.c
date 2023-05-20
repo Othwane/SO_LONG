@@ -8,19 +8,20 @@ int main(int argc, char **argv)
 		errorf(1);
 
 
-	argschecker(argc, argv, &game);
+	argschecker(argv);
 	initstuff(argv, &game);
-	n_map(&game);
-	// printf("%s\n", game.map[0]);
-	// int i = 0;
-	// if (game.map)
-	// {
-	// 	printf("There is a map\n");
-	// }
-	// while (game.map[i])
-	// {
-	// 	printf("ok\n");
-	// 	// printf("%s", game.map[i++]);
-	// }
-	return (0);
+	readmap(&game);
+	
+
+
+	//int i = 0;
+	//if (game.map)
+	//{
+	//	printf("There is a map\n");
+	//}
+	//while (game.map[i])
+	//{
+	//	printf("%s", game.map[i++]);
+	//}
+	//return (0);
 }

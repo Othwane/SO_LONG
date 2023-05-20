@@ -1,6 +1,6 @@
 #include "../inc/so_long.h"
 
-void	argschecker(int argc, char **argv, t_game *game)
+void	argschecker(char **argv)
 {
     int fd;
 

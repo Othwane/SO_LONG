@@ -1,5 +1,5 @@
-#ifndef	SO_LONG_H
-#define SO_LONG_H
+# ifndef	SO_LONG_H
+# define SO_LONG_H
 
 #include <unistd.h>
 #include <stdio.h>
@@ -18,8 +18,8 @@ typedef struct	s_game {
 	char	*mapname;
 	char 	*mapx;
 	int 	mapfd;
-	int		l_map;
-	int		c_map;
+	int		l_inmap;
+	int		c_inmap;
 	int 	x_map;
 	int 	y_map;
 
@@ -49,12 +49,11 @@ char	*ft_until_nl(char *string);
 char	*ft_after_nl(char *string);
 char	*get_next_line(int fd);
 
-void	argschecker(int argc, char **argv, t_game *game);
+void	argschecker(char **argv);
 void	initstuff(char **argv, t_game *game);
 void    errorf(int error);
 
 void    readmap(t_game *game);
-void    n_map(t_game *game);
-
+void   	fdlines_c(t_game *game);
 
 #endif
