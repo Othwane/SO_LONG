@@ -63,5 +63,6 @@ int    cf_line(t_game *game);
 int    cm_lines(t_game *game);
 int    cl_line(t_game *game);
 
+void mapchecker(t_game *game);
 
 #endif

@@ -8,4 +8,8 @@ void	initstuff(char **argv, t_game *game)
     game->c_inmap = 0;
     game->x_map = 0;
     game->y_map = 0;
+    game->exit = 1;
+    game->player = 1;
+    game->collects = 1;
+    
 }

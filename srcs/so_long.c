@@ -9,16 +9,17 @@ int main(int argc, char **argv)
 	argschecker(argv);
 	initstuff(argv, &game);
 	readmap(&game);
-	check_walls(&game);
+	mapchecker(&game);
+	
 	// mapchecker(game.mapfd);
-	//int i = 0;
-	//if (game.map)
-	//{
-	//	printf("There is a map\n");
-	//}
-	//while (game.map[i])
-	//{
-	//	printf("%s", game.map[i++]);
-	//}
-	//return (0);
+	// int i = 0;
+	// if (game.map)
+	// {
+	// 	printf("There is a map\n");
+	// }
+	// while (game.map[i])
+	// {
+	// 	printf("%s", game.map[i++]);
+	// }
+	return (0);
 }
