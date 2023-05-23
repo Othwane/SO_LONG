@@ -13,7 +13,7 @@ void	argschecker(char **argv)
                 if(argv[1][ft_strlen(argv[1]) - 4] == '.')
                 {
                     fd = open(argv[1], O_RDONLY);
-                    if (fd == -1 || !(read(fd,0,0)))
+                    if (fd == -1)
                         errorf(4);
                     close(fd);
                     return ;

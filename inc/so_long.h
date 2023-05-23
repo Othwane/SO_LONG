@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <fcntl.h>
 
-#define BUFFER_SIZE 100
+#define BUFFER_SIZE 1
 
 typedef struct	s_game {
 	void	*mlx;
