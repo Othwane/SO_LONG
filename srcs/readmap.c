@@ -1,41 +1,51 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   readmap.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: omajdoub <omajdoub@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/27 03:44:22 by omajdoub          #+#    #+#             */
+/*   Updated: 2023/05/27 16:03:32 by omajdoub         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/so_long.h"
 
-void    readmap(t_game *game)
+void	readmap(t_game *game)
 {
-    char *buff;
-    int line;
+	char	*map;
+	ssize_t	bytes_read;
+	char	*line;
 
-	line = 0;
-    while (1)
-	{
-		buff = get_next_line(game->mapfd);
-		if (buff)
-			free(buff);
-		else
-			break ;
-		line++;
-	}
-    if (!(game->map = malloc(line * sizeof(char *))))
-		exit (1);
-	fdlines_c(game);
-}
-
-void    fdlines_c(t_game *game)
-{
-	game->mapfd = open(game->mapname, O_RDONLY);
-	game->map[game->l_inmap] = get_next_line(game->mapfd);
-	if (game->map[game->l_inmap] == NULL)
-	{
+	line = ft_calloc(2, 1);
+	map = NULL;
+	if (!line)
 		errorf(1);
-	}
 	while (1)
 	{
-		if (game->map[game->l_inmap][0] == '\n' && game->map[game->l_inmap][1] == '\0')
-			errorf(3);
-		game->l_inmap++;
-		game->map[game->l_inmap] = get_next_line(game->mapfd);
-		if (game->map[game->l_inmap] == NULL)
-			break;
+		bytes_read = read(game->mapfd, line, 1);
+		if (bytes_read == 0)
+			break ;
+		map = ft_strjoin(map, line);
 	}
-    game->c_inmap = ft_strlen(game->map[0]);
+	game->mapx = map;
+	ddnl(game);
+	game->map = ft_split(map, '\n');
+	free(line);
+	line = NULL;
+	close(game->mapfd);
+}
+
+void	ddnl(t_game *game)
+{
+	int	i;
+
+	i = 0;
+	while (game->mapx[i])
+	{
+		if (game->mapx[i] == '\n' && game->mapx[i + 1] == '\n')
+			errorf(3);
+		i++;
+	}
 }
