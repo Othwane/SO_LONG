@@ -6,7 +6,7 @@
 /*   By: omajdoub <omajdoub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 18:20:28 by omajdoub          #+#    #+#             */
-/*   Updated: 2023/05/27 16:11:21 by omajdoub         ###   ########.fr       */
+/*   Updated: 2023/06/03 21:11:28 by omajdoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,33 +52,6 @@ int	findc_inmap(char **map, char c)
 		index1++;
 	}
 	return (1);
-}
-
-t_pos	get_pos(char **map, char c)
-{
-	t_pos	pos;
-	int		index1;
-	int		index2;
-
-	pos.x = -1;
-	pos.y = -1;
-	index1 = 0;
-	while (map[index1])
-	{
-		index2 = 0;
-		while (map[index1][index2])
-		{
-			if (map[index1][index2] == c)
-			{
-				pos.x = index2;
-				pos.y = index1;
-				return (pos);
-			}
-			index2++;
-		}
-		index1++;
-	}
-	return (pos);
 }
 
 static void	check(char **map_cpy, int x_next, int y_next)

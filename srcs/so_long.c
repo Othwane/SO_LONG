@@ -6,7 +6,7 @@
 /*   By: omajdoub <omajdoub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 03:44:33 by omajdoub          #+#    #+#             */
-/*   Updated: 2023/05/27 16:09:11 by omajdoub         ###   ########.fr       */
+/*   Updated: 2023/06/03 21:50:50 by omajdoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,13 @@ int	leave(t_game *game)
 	exit(0);
 }
 
+void	mapchecker(t_game *game)
+{	
+	check_map_size(game);
+	check_walls(game);
+	check_pce(game);
+}
+
 int	main(int argc, char **argv)
 {
 	t_game	game;
@@ -50,7 +57,6 @@ int	main(int argc, char **argv)
 	readmap(&game);
 	mapchecker(&game);
 	check_valid_path(&game);
-	check_map_size(&game);
 	playgame(&game);
 	return (0);
 }

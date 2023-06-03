@@ -9,8 +9,6 @@ SRCS =  ./srcs/so_long.c\
 		./srcs/errorhandler.c\
 		./srcs/init.c \
 		./srcs/readmap.c \
-		./srcs/gnl.c \
-		./srcs/gnl_utils.c \
 		./srcs/mapchecker.c \
 		./srcs/check_valid_path.c \
 		./srcs/directions.c \

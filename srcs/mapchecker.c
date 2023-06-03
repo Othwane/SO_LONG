@@ -6,21 +6,11 @@
 /*   By: omajdoub <omajdoub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 03:44:18 by omajdoub          #+#    #+#             */
-/*   Updated: 2023/05/27 15:05:32 by omajdoub         ###   ########.fr       */
+/*   Updated: 2023/06/03 21:46:21 by omajdoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
-
-int	strlenn(char **str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
 
 int	cf_line(t_game *game)
 {
@@ -82,20 +72,7 @@ void	check_pce(t_game *game)
 		while (game->map[i][ii])
 		{
 			check_noneeded(game);
-			if (game->map[i][ii] == 'P')
-			{
-				game->player++;
-				game->y_player = i;
-				game->x_player = ii;
-			}
-			if (game->map[i][ii] == 'C')
-				game->collects++;
-			if (game->map[i][ii] == 'E')
-			{
-				game->exit++;
-				game->y_exit = i;
-				game->x_exit = ii;
-			}
+			pce(game, i, ii);
 			ii++;
 		}
 		i++;
@@ -104,27 +81,21 @@ void	check_pce(t_game *game)
 	if (game->player != 1 || game->collects == 0 || game->exit != 1)
 		errorf(7);
 }
-void	check_noneeded(t_game *game)
-{
-	int i = 0;
-	int ii;
-	while (game->map[i])
-	{
-		ii = 0;
-		while (game->map[i][ii])
-		{
-			if (game->map[i][ii] != '0' && game->map[i][ii] != '1' && game->map[i][ii] != 'P' && game->map[i][ii] != 'C' && game->map[i][ii] != 'E' && game->map[i][ii] != '\n')
-				errorf(1);
-			ii++;
-		}
-		
-		i++;		
-	}
-	
-}
 
-void	mapchecker(t_game *game)
-{	
-	check_walls(game);
-	check_pce(game);
+void	pce(t_game *game, int i, int ii)
+{
+	if (game->map[i][ii] == 'P')
+	{
+		game->player++;
+		game->y_player = i;
+		game->x_player = ii;
+	}
+	if (game->map[i][ii] == 'C')
+		game->collects++;
+	if (game->map[i][ii] == 'E')
+	{
+		game->exit++;
+		game->y_exit = i;
+		game->x_exit = ii;
+	}
 }

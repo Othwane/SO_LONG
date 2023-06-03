@@ -6,7 +6,7 @@
 /*   By: omajdoub <omajdoub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 03:43:42 by omajdoub          #+#    #+#             */
-/*   Updated: 2023/05/27 11:34:19 by omajdoub         ###   ########.fr       */
+/*   Updated: 2023/06/03 21:50:21 by omajdoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,26 +72,6 @@ void	change_char_in_map(t_game *game, t_pos ppostion, \
 	drawmap(game);
 }
 
-char	get_in_pos(t_game *game, int x, int y)
-{
-	int	i;
-	int	ii;
-
-	i = 0;
-	while (game->map[i])
-	{
-		ii = 0;
-		while (game->map[i][ii])
-		{
-			if (i == y && ii == x)
-				return (game->map[i][ii]);
-			ii++;
-		}
-		i++;
-	}
-	return (0);
-}
-
 int	handle_event(int keycode, t_game *game)
 {
 	t_pos	pposition;
@@ -109,7 +89,6 @@ int	handle_event(int keycode, t_game *game)
 		leave(game);
 	return (1);
 }
-
 
 int	playgame(t_game *game)
 {

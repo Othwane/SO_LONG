@@ -6,7 +6,7 @@
 /*   By: omajdoub <omajdoub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 10:39:10 by omajdoub          #+#    #+#             */
-/*   Updated: 2023/05/27 15:19:37 by omajdoub         ###   ########.fr       */
+/*   Updated: 2023/06/03 21:40:05 by omajdoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,8 @@ typedef struct s_position
 	int	y;
 }	t_pos;
 
-int		slength(char *string);
-char	*searchr(char *string, int x);
-char	*stringjoin(char *pref, char *suff);
-char	*ft_read_ln(int fd, char *line);
-char	*ft_until_nl(char *string);
-char	*ft_after_nl(char *string);
-char	*get_next_line(int fd);
+void	pce(t_game *game, int i, int ii);
+
 void	argschecker(char **argv);
 void	initstuff(char **argv, t_game *game);
 void	errorf(int error);
@@ -74,6 +69,7 @@ void	readmap(t_game *game);
 void	mapchecker(t_game *game);
 void	check_map_size(t_game *game);
 void	check_walls(t_game *game);
+void	check_pce(t_game *game);
 void	check_noneeded(t_game *game);
 int		cf_line(t_game *game);
 int		cl_lines(t_game *game);

@@ -6,7 +6,7 @@
 /*   By: omajdoub <omajdoub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 03:44:22 by omajdoub          #+#    #+#             */
-/*   Updated: 2023/05/27 16:03:32 by omajdoub         ###   ########.fr       */
+/*   Updated: 2023/06/03 21:26:16 by omajdoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,14 @@ void	ddnl(t_game *game)
 			errorf(3);
 		i++;
 	}
+}
+
+int	strlenn(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
